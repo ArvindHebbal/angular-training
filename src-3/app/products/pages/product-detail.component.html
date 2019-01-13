@@ -1,0 +1,75 @@
+<!--=============================================================================*/
+/*********************************************************************************/
+/**
+ * @fileOverview To display selected product details
+ * @author Arvind Hebbal, arvind.hebbal@healthasyst.com
+ * @copyright Copyright (c) 2018 Elear Solutions Tech Private Limited. All rights
+ * reserved.
+ * @license To any person (the "Recipient") obtaining a copy of this software and
+ * associated documentation files (the "Software"):
+ *
+ * All information contained in or disclosed by this software is confidential
+ * and proprietary information of Elear Solutions Tech Private Limited and all
+ * rights therein are expressly reserved. By accepting this material the
+ * recipient agrees that this material and the information contained therein is
+ * held in confidence and in trust and will NOT be used, copied, modified,
+ * merged, published, distributed, sublicensed, reproduced in whole or in part,
+ * nor its contents revealed in any manner to others without the express
+ * written permission of Elear Solutions Tech Private Limited.
+ */
+/*********************************************************************************/
+/*=============================================================================-->
+
+<div class='card'
+  *ngIf='product'>
+  <div class='card-header'>
+    {{pageTitle + ': ' + product.productName}}
+  </div>
+  <div class='card-body'>
+    <div class='row'>
+      <div class='col-md-8'>
+        <div class='row'>
+          <div class='col-md-4'>Name:</div>
+          <div class='col-md-8'>{{product.productName}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Code:</div>
+          <div class='col-md-8'>{{product.productCode | lowercase | convertToSpaces: '-'}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Description:</div>
+          <div class='col-md-8'>{{product.description}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Availability:</div>
+          <div class='col-md-8'>{{product.releaseDate}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Price:</div>
+          <div class='col-md-8'>{{product.price|currency:'USD':'symbol'}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>5 Star Rating:</div>
+          <div class='col-md-8'>
+            <pm-star [rating]='product.starRating'>
+            </pm-star>
+          </div>
+        </div>
+      </div>
+      <div class='col-md-4'>
+        <img class='center-block img-responsive'
+          [style.width.px]='200'
+          [style.margin.px]='2'
+          [src]='product.imageUrl'
+          [title]='product.productName'>
+      </div>
+    </div>
+  </div>
+  <div class='card-footer'>
+    <button class='btn btn-outline-secondary'
+      (click)='onBack()'
+      style='width:80px'>
+      <i class='fa fa-chevron-left'></i> Back
+    </button>
+  </div>
+</div>
